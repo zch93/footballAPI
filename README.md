@@ -24,7 +24,6 @@ There are two important classes in my project:
 ```java
 public class GetInputFixtureData_WORK {...}
 ```
-and
 2) To obtain data about detailed statistics related to a particular fixture
 ```java
 public class GetFixtureStatistics {...}
