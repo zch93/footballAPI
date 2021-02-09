@@ -53,4 +53,17 @@ public class GetInputFixtureData_WORK {...}
 public class GetFixtureStatistics {...}
 ```
 
+I used an HttpRequest instance to make GET request, to build up response body as a String
+```java
+HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://v3.football.api-sports.io/fixtures?league=4&season=2020"))
+                .header("x-rapidapi-host", "v3.football.api-sports.io")
+                .header("x-rapidapi-key", "cefab1bbf6938384f876437d5c3cd9be")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+
+        HttpResponse<String> response;
+```
+
+
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/example.png?raw=true)
