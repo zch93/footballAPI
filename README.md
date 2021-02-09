@@ -127,5 +127,64 @@ PreparedStatement pstmt = conDB.prepareStatement(query);
     pstmt.executeUpdate();
 ```
 
+## MySQL part
+In database level I was interested about the Hungarian team related statistics, so I wrote queries to get information about the results of the team.
+#
+Examples:
+1) Query to get all matches what the Hun team had, the opponent, the goals what the Hun team scored or got and also the final result as they were the WINNER or that was a matxh which had been LOST:
+
+```sql
+SELECT 
+    fixture_id,
+    league_round,
+    home_team_name,
+    goals_home,
+    goals_away,
+    away_team_name,
+    CASE
+        WHEN
+            home_team_name = 'Hungary'
+                AND goals_home > goals_away THEN 'WINNER'
+        WHEN
+            away_team_name = 'Hungary'
+                AND goals_away > goals_home THEN 'WINNER'
+        WHEN fixture_id > 657683 THEN 'FUTURE MATCH'
+        ELSE IF(goals_home = goals_away, 'DRAW', 'LOST')
+    END AS hun_wins
+FROM
+    fixtures
+WHERE
+    home_team_name = 'Hungary'
+        OR away_team_name = 'Hungary'
+ORDER BY fixture_id;
+```
+![alt text](https://github.com/zch93/footballAPI_pics/blob/main/Query_1.png?raw=true)
+#
+2) I wrote an other query to get data about the shots and goals per match
+```sql
+SELECT
+    s.fixture_id,
+    s.team_name,
+    s.shots_on_goal,
+    s.shots_off_goal,
+    s.blocked_shots,
+    IF (s.team_name = f.home_team_name, f.away_team_name, f.home_team_name) as opponent,
+    CASE
+        WHEN s.team_name = f.home_team_name THEN f.goals_home
+        WHEN s.team_name = f.away_team_name THEN f.goals_away
+        ELSE 'null'
+    END AS goals_on_match
+FROM
+    statistics s
+        JOIN fixtures f ON s.fixture_id = f.fixture_id
+HAVING s.team_name = "Hungary";
+```
+![alt text](https://github.com/zch93/footballAPI_pics/blob/main/Query_2.png?raw=true)
+(There will be other queries as well, as this part of the project is under construction)
+#
+And in the last step I imported the results into Tableau as .CSV files.
+
+## Tableau Public (BI) part
+
 
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/example.png?raw=true)
