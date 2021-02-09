@@ -103,7 +103,29 @@ for (int i = 0; i < arr.size(); i++) {
        
   ...}
 ```
+#
+At the end of the programs two main steps executed:
+- Defining a MySQL query to insert data into the database
+- Execute the insert into update on the database
 
+1) MySQL query (one example with the fixtures)
+```java
+String query = "INSERT INTO fixtures (" +
+        "fixture_id, referee, time_zone, time_stamp, league_id,"+
+        "league_round, home_team_id, home_team_name, away_team_id, away_team_name," +
+        "goals_home, goals_away,score_halftime_home, score_halftime_away,  score_fulltime_home, score_fulltime_away, score_extratime_home, score_extratime_away)" +
+        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+```
+2) Execute the update with the implemtation of PreparedStatement interface (example)
+```java
+PreparedStatement pstmt = conDB.prepareStatement(query);
+    pstmt.setLong(1, fixtureID);
+    pstmt.setString(2,referee);
+    pstmt.setString(3, timeZone);
+    pstmt.setString(4,timestampString);
+    ...etc.
+    pstmt.executeUpdate();
+```
 
 
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/example.png?raw=true)
