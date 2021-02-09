@@ -92,12 +92,16 @@ for (int i = 0; i < arr.size(); i++) {
     long teamID = (long) fix.get("id"); ... etc.
     
     JSONArray statArr = (JSONArray) stat.get("statistics");
-for (int j = 0; j < statArr.size(); j++) {
-    SONObject statistics = (JSONObject) statArr.get(j);
-    String type = (String) statistics.get("type");
+        for (int j = 0; j < statArr.size(); j++) {
+          SONObject statistics = (JSONObject) statArr.get(j);
+          String type = (String) statistics.get("type");
     
-    StatValueGen value = new StatValueGen();
-    value.addElement(statistics.get("value")); ...etc.
+          StatValueGen value = new StatValueGen();
+          value.addElement(statistics.get("value")); ...etc.
+          
+       ...}
+       
+  ...}
 ```
 
 
