@@ -62,7 +62,7 @@ HttpRequest request = HttpRequest.newBuilder()
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
 
-        HttpResponse<String> response;
+HttpResponse<String> response;
 ```
 
 
