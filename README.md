@@ -13,4 +13,4 @@ So this was the goal of my project, to gather and analyze data about our nationa
   - MySQL database to write queries
   - BI tool to represent data
 
-![alt text](https://github.com/[zch93]/[footballAPI_pics]/[main]/example.png?raw=true)
+![alt text](https://github.com/zch93/footballAPI_pics/main/example.png?raw=true)
