@@ -16,7 +16,31 @@ So this was the goal of my project, to gather and analyze data about our nationa
   ## About the API
 I've called two parts of the structure:
 - Fixture: Give back a JSONArray with basic information about the match (eg. scored goals, result in the first and second hald etc.)
+Structure of Fixtures:
+```java
+"response": [
+{
+"fixture": {},
+"league": {},
+"teams": {},
+"goals": {},
+"score": {}
+    }
+]
+```
 - Statistics: Give back a JSONArray which contains detailed statistics about the match (eg. shots on goal, shots off goal, total shots etc.)
+
+Structure of Statistics:
+```java
+"response": [
+{
+"team": {},
+"statistics": [
+{
+"type": "xxx",
+"value": x
+}
+ ```
  
 ## Java part
 There are two important classes in my project:
