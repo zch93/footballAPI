@@ -12,5 +12,22 @@ So this was the goal of my project, to gather and analyze data about our nationa
   - Java based program to push the gathered data into a database
   - MySQL database to write queries
   - BI tool to represent data
+    
+  ## About the API
+I've called two parts of the structure:
+- Fixture: Give back a JSONArray with basic information about the match (eg. scored goals, result in the first and second hald etc.)
+- Statistics: Give back a JSONArray which contains detailed statistics about the match (eg. shots on goal, shots off goal, total shots etc.)
+ 
+## Java part
+There are two important classes in my project:
+1) To get response about the fixtures
+```java
+public class GetInputFixtureData_WORK {...}
+```
+and
+2) To obtain data about detailed statistics related to a particular fixture
+```java
+public class GetFixtureStatistics {...}
+```
 
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/example.png?raw=true)
