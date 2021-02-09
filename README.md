@@ -65,5 +65,41 @@ HttpRequest request = HttpRequest.newBuilder()
 HttpResponse<String> response;
 ```
 
+The important part of my classes is the way how I gathered the data from the response message.
+1) In case of the Fixtures, it was easier and I wrote a "for cycle" to iterate through the response JSONArray:
+```java
+JSONArray arr = (JSONArray) rest.get("response");
+
+for (int i = 0; i < arr.size(); i++) {
+    JSONObject fixture = (JSONObject) arr.get(i);
+
+    //response -> fixture (id, referee, timezone, date)
+    JSONObject fix = (JSONObject) fixture.get("fixture");
+    long fixtureID = (long) fix.get("id");
+    String referee = (String) fix.get("referee");
+    String timeZone = (String) fix.get("timezone"); ....etc.
+```
+
+2) In case of the Statistics part, it was a bigger challange, because the response JSONArray contains other 2 JSONArrays about the statistics related to the two teams. Furthermore inside the statistics JSONArray, there are alway 2 fields: type and value, and the value field can contains integer and String as well. So first I should built up a "for cycle" inside an other "for cycle", then I ad to solve the value "problem" with a generic class (StatValueGen()):
+```java
+JSONArray arr = (JSONArray) rest.get("response");
+for (int i = 0; i < arr.size(); i++) {
+    JSONObject stat = (JSONObject) arr.get(i);
+    int statFixtureID = (int) fixtureID;
+
+    //response -> fixture (team id, team name)
+    JSONObject fix = (JSONObject) stat.get("team");
+    long teamID = (long) fix.get("id"); ... etc.
+    
+    JSONArray statArr = (JSONArray) stat.get("statistics");
+for (int j = 0; j < statArr.size(); j++) {
+    SONObject statistics = (JSONObject) statArr.get(j);
+    String type = (String) statistics.get("type");
+    
+    StatValueGen value = new StatValueGen();
+    value.addElement(statistics.get("value")); ...etc.
+```
+
+
 
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/example.png?raw=true)
