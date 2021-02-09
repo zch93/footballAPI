@@ -13,4 +13,4 @@ So this was the goal of my project, to gather and analyze data about our nationa
   - MySQL database to write queries
   - BI tool to represent data
 
-![image Info](filed:///Users/chikanzsombor/Desktop/Images/example.png "Image Description")
+![example](/Users/chikanzsombor/Desktop/Images/example.png)
