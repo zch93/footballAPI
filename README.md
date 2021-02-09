@@ -12,3 +12,5 @@ So this was the goal of my project, to gather and analyze data about our nationa
   - Java based program to push the gathered data into a database
   - MySQL database to write queries
   - BI tool to represent data
+
+![image Info](filed:///Users/chikanzsombor/Desktop/Images/example.png "Image Description")
