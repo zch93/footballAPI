@@ -220,6 +220,24 @@ HAVING s.team_name = "Hungary";
 ```
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/Query_2.png?raw=true)
 
+3) With a 3rd query I could obtain all the Hun shots (all types) and all scored goals
+```sql
+SELECT 
+    SUM(s.shots_off_goal) AS all_shot_off_goal,
+    SUM(s.blocked_shots) AS all_blocked_shots,
+    SUM(s.shots_on_goal) AS all_shots_on_goal,
+    (SELECT 
+            SUM(CASE
+                    WHEN home_team_name = 'Hungary' THEN goals_home
+                    WHEN away_team_name = 'Hungary' THEN goals_away
+                    ELSE 0
+                END)
+        FROM fixtures) AS all_golas
+FROM fixtures f JOIN statistics s ON f.fixture_id = s.fixture_id
+WHERE
+    team_name = 'Hungary';
+```
+
 (There will be other queries as well, as this part of the project is under construction)
 
 And in the last step I imported the results into Tableau as .CSV files.
