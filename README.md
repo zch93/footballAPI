@@ -12,6 +12,43 @@ So this was the goal of my project, to gather and analyze data about our nationa
   - Java based program to push the gathered data into a database
   - MySQL database to write queries
   - BI tool to represent data
+
+## Build Java Code
+
+```mvn
+<dependencies>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.46</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <property name="hibernate.connection.url">
+            jdbc:mysql://127.0.0.1/database?autoReconnect=true
+        </property>
+        <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <property name="c3p0.acquire_increment">1</property>
+        <property name="c3p0.idle_test_period">100</property> <!-- seconds -->
+        <property name="c3p0.max_size">100</property>
+        <property name="c3p0.max_statements">0</property>
+        <property name="c3p0.min_size">10</property>
+        <property name="c3p0.timeout">1800</property> <!-- seconds -->
+    </properties>
+```
     
   ## About the API
 I've called two parts of the structure:
