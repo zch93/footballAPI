@@ -199,7 +199,7 @@ ORDER BY fixture_id;
 ```
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/Query_1.png?raw=true)
 #
-2) I wrote an other query to get data about the shots and goals per match
+2) I wrote an other query to get data about the Hun shots and Hun goals per match
 ```sql
 SELECT
     s.fixture_id,
