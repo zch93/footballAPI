@@ -10,7 +10,10 @@ So this was the goal of my project, to gather and analyze data about our nationa
   - Java based program to push the gathered data into a database
   - MySQL database to write queries
   - BI tool to represent data
-#
+
+
+
+
 ## Build Java Code
 
 To build up my Java project I used Maven clean install. The basic *pom.xml* file contained all the necessary initial information, however I had to write the following dependencies and properties to build my Java project.
