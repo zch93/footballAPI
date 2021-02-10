@@ -59,12 +59,12 @@ Structure of Fixtures:
 ```java
 "response": [
 {
-"fixture": {},
-"league": {},
-"teams": {},
-"goals": {},
-"score": {}
-    }
+    "fixture": {},
+    "league": {},
+    "teams": {},
+    "goals": {},
+    "score": {}
+ ...}
 ]
 ```
 - Statistics: Give back a JSONArray which contains detailed statistics about the match (eg. shots on goal, shots off goal, total shots etc.)
@@ -73,12 +73,12 @@ Structure of Statistics:
 ```java
 "response": [
 {
-"team": {},
-"statistics": [
-{
-"type": "xxx",
-"value": x
-}
+    "team": {},
+    "statistics": [
+        {
+            "type": "xxx",
+            "value": x
+     ...}
  ```
  
 ## Java part
