@@ -237,6 +237,8 @@ FROM fixtures f JOIN statistics s ON f.fixture_id = s.fixture_id
 WHERE
     team_name = 'Hungary';
 ```
+![alt text](https://github.com/zch93/footballAPI_pics/blob/main/Query_3.png?raw=true)
+
 
 (There will be other queries as well, as this part of the project is under construction)
 
@@ -246,8 +248,16 @@ And in the last step I imported the results into Tableau as .CSV files.
 
 At the end of the pipeline of my project I worked with Tableaue as a BI tool and I just started to prepare insightful charts based on the data fetched from the API.
 
+1) ##First example##
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/example.png?raw=true)
 
 Possible insights can be:
 - it shows in the performance that when we “don’t get a word,” so we can only manage from relatively few shots, we can’t score a goal. So we usually use our opportunities poorly. Or we usually have fewer 'shots on goal', so if we can attack an opponent frequently, we can only predict a goal after a certain minimum number of shots (since in case of the Hun team, a large number of shots do not generate many goals, based on the data)
 - so, importantly, we can reduce the size of the Gray area ('shots off goal') by improving the shot accuracy. And the red part ('blocked shots') is only partly up to us. To reduce the size of red part, technique, tactics and shooting situation creation need to be developed. For example, due to a poor tactic, the situation is not good enough and the players may shoot too fast, too far, from too bad a position, and shots may be blocked.
+
+2) ##Second example##
+![alt text](https://github.com/zch93/footballAPI_pics/blob/main/HUN_All_goals_and_shots.png?raw=true)
+
+Possible insights can be:
+- Shot accuracy must be improved, due to the fact, more than 80% of the HUN team's shots were not on goal (blocked or off goal)
+- Changing opportunities to goal also should be improved, as only 26% of our shots on goals had been registered as real goals 
