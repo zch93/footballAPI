@@ -221,7 +221,7 @@ HAVING s.team_name = "Hungary";
 ![alt text](https://github.com/zch93/footballAPI_pics/blob/main/Query_2.png?raw=true)
 
 (There will be other queries as well, as this part of the project is under construction)
-#
+
 And in the last step I imported the results into Tableau as .CSV files.
 
 ## Tableau Public (BI) part
